@@ -15,6 +15,11 @@
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
+        <td>
+          <% article.photos.each do |photo| %>
+            <%= cl_image_tag(photo.key, height: 50, width: 50) %>
+          <% end %>
+        </td>
         <td><%= article.body %></td>
         <td><%= link_to 'Show', article %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
@@ -27,3 +32,10 @@
 <br>
 
 <%= link_to 'New Article', new_article_path %>
+
+<%= cl_image_tag("cdm7kursvagi4jm4k6sm",
+      width: 400, height: 300, crop: :fill) %>
+
+<!-- for face detection -->
+<%= cl_image_tag("mwhatttmdneu6qq6ncjb",
+      width: 150, height: 150, crop: :thumb, gravity: :face) %>
